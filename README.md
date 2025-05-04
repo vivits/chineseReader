@@ -37,24 +37,30 @@ Note: Due to differences between the segmentation and dictionary tools, some wor
 
 ## Demo
 
-1. Open the app. On the first open, it needs to load the dictionary data into memory. This takes a few seconds.
+1. Open the app. On the first open, it needs to load the dictionary data into memory. This takes a few seconds.  
    <img src="./demo/loadingscreen.gif" width="250">
-2. Select the photo, either by upload or camera.
+
+2. Select the photo, either by upload or camera.  
    <img src="./demo/selectphoto.gif" width="250">
-3. Tap on a block of text to see the characters and their pinyin/jyutping
+
+3. Tap on a block of text to see the characters and their pinyin/jyutping.  
    <img src="./demo/blockselect.gif" width="250">
-4. Toggle between pinyin and jyutping
+
+4. Toggle between pinyin and jyutping.  
    <img src="./demo/toggle.gif" width="250">
-5. Tap on a word to see its English definition
+
+5. Tap on a word to see its English definition.  
    <img src="./demo/dictionary.gif" width="250">
-6. Tap on the right or left side of the BottomSheetScrollView to move up or down blocks
+
+6. Tap on the right or left side of the BottomSheetScrollView to move up or down blocks.  
    <img src="./demo/blockswitch.gif" width="250">
-7. Tap the back button to close the BottomSheetScrollView and select another image to read.
+
+7. Tap the back button to close the BottomSheetScrollView and select another image to read.  
    <img src="./demo/exit.gif" width="250">
-8. 
+
 ## Tech Stack
 
-This project utilizes the following technologies and libraries:
+This project utilizes the following technologies and libraries. See full dependencies in [package.json](./package.json) 
 
 ### Core
 - **React Native** - Cross-platform mobile app framework
