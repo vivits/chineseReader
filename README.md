@@ -38,20 +38,20 @@ Note: Due to differences between the segmentation and dictionary tools, some wor
 ## Demo
 
 1. Open the app. On the first open, it needs to load the dictionary data into memory. This takes a few seconds.
-   ![App Demo](./demo/loadingscreen.gif)
+   <img src="./demo/loadingscreen.gif" width="250">
 2. Select the photo, either by upload or camera.
-   ![App Demo](./demo/selectphoto.gif)
+   <img src="./demo/selectphoto.gif" width="250">
 3. Tap on a block of text to see the characters and their pinyin/jyutping
-   ![App Demo](./demo/blockselect.gif)
+   <img src="./demo/blockselect.gif" width="250">
 4. Toggle between pinyin and jyutping
-   ![App Demo](./demo/toggle.gif)
+   <img src="./demo/toggle.gif" width="250">
 5. Tap on a word to see its English definition
-   ![App Demo](./demo/dictionary.gif)
+   <img src="./demo/dictionary.gif" width="250">
 6. Tap on the right or left side of the BottomSheetScrollView to move up or down blocks
-   ![App Demo](./demo/blockswitch.gif)
+   <img src="./demo/blockswitch.gif" width="250">
 7. Tap the back button to close the BottomSheetScrollView and select another image to read.
-   ![App Demo](./demo/exit.gif)
-    
+   <img src="./demo/exit.gif" width="250">
+8. 
 ## Tech Stack
 
 This project utilizes the following technologies and libraries:
