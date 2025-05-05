@@ -84,3 +84,35 @@ This project utilizes the following technologies and libraries. See full depende
 ### Utilities
 - **react-native-reanimated** - Smooth animations and gestures
 - **react-native-activity-indicator** - Loading indicators
+
+## Privacy Policy for app users
+
+### 1. Information Collected
+
+The following information may be collected:
+
+- **Photos and Camera Access**: Your device’s camera or photo gallery is accessed only when you choose to use features that require them (e.g., taking or uploading a photo).
+- **No Storage or Sharing**: Your photos and camera data are not stored, shared, or uploaded to any server.
+
+### 2. How We Use Your Information
+
+- Photos are used **only within the app**, for the purpose of providing the Chinese text recognition/dictionary feature
+
+- Your data **is not collected, transmitted, or used for any other purpose**.
+
+### 3. Permissions
+
+- The app will request permission to access your camera and/or photo gallery when required.
+- You can deny this access, but some features may not work without it.
+
+### 4. Third-Party Services
+
+This app does **not use third-party services** that collect information used to identify you.
+
+### 5. Children's Privacy
+
+This app is not intended for children under 13, and we do not knowingly collect personal information from them.
+
+### 6. Contact Us
+
+If you have any questions or concerns about this policy, please contact us at: **vet927@gmail.com**
