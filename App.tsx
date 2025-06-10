@@ -35,12 +35,69 @@ import TextRecognition, {
   TextRecognitionScript,
 } from "@react-native-ml-kit/text-recognition";
 import styles from "./styles";
+import SQLite from "react-native-sqlite-storage";
 
 addDict(ModernChineseDict);
 
 let launchImageLibrary = _launchImageLibrary;
 let launchCamera = _launchCamera;
+SQLite.enablePromise(true);
 
+const db = SQLite.openDatabase(
+  {
+    name: "lexicon.db",
+    location: "default",
+    createFromLocation: "~lexicon.db",
+  },
+  () => console.log("DB opened"),
+  (err) => console.error("DB open error", err)
+);
+type Props = {
+  phrase: string;
+};
+
+export default function DefinitionPopover({ phrase }: Props) {
+  const [definitions, setDefinitions] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (!phrase) {
+      setDefinitions([]);
+      return;
+    }
+    db.then((dbInstance) => {
+      dbInstance.transaction((tx) => {
+        tx.executeSql(
+          `SELECT definitions FROM definitions WHERE char = ? OR trad = ?`,
+          [phrase, phrase],
+          (_, resultSet) => {
+            if (resultSet.rows.length > 0) {
+              const raw = resultSet.rows.item(0).definitions;
+              setDefinitions(JSON.parse(raw));
+            } else {
+              setDefinitions([]);
+            }
+          },
+          (_, error) => {
+            console.error("SQLite error:", error);
+            return false;
+          }
+        );
+      });
+    }).catch((err) => {
+      console.error("Failed to open DB:", err);
+    });
+  }, [phrase]);
+
+  return (
+    <View style={styles.popover}>
+      <Text>
+        {definitions.length > 0
+          ? definitions.join("\n")
+          : "No definitions found."}
+      </Text>
+    </View>
+  );
+}
 const App = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [text, setText] = useState("");
@@ -55,40 +112,6 @@ const App = () => {
   const [dictLoading, setDictLoading] = useState(true);
   const initialized = useRef(false);
   const isMounted = useRef(true);
-
-  const LoadingScreen = () => (
-    <View style={styles.loadingContainer}>
-      <ActivityIndicator size="large" color="#00ff00" />
-      <Text style={{ fontSize: 15, color: "white" }}>Loading data...</Text>
-    </View>
-  );
-
-  useEffect(() => {
-    const initialize = async () => {
-      try {
-        // show loading immediately
-        setDictLoading(true);
-
-        // force dict load
-        await getEntries("测试");
-      } finally {
-        // ensure component is still mounted
-        if (isMounted.current) {
-          // force state update in next frame
-          requestAnimationFrame(() => {
-            setDictLoading(false);
-          });
-        }
-      }
-    };
-
-    // Start initialization after first paint
-    requestAnimationFrame(initialize);
-
-    return () => {
-      isMounted.current = false;
-    };
-  }, []);
 
   useEffect(() => {
     if (selectedImage) {
@@ -212,13 +235,7 @@ const App = () => {
                     isVisible={openPhraseIndex === i}
                     onRequestClose={() => setOpenPhraseIndex(null)}
                   >
-                    <View style={styles.popover}>
-                      <Text>
-                        {getEntries(phrase)[0]
-                          ? getEntries(phrase)[0].definitions.join("\n")
-                          : " "}
-                      </Text>
-                    </View>
+                    <DefinitionPopover phrase={phrase} />
                   </Popover>
                   {Array.from(phrase).map((char, j) => {
                     const pin =
@@ -324,9 +341,7 @@ const App = () => {
     }
   };
 
-  return dictLoading ? (
-    <LoadingScreen />
-  ) : (
+  return (
     <GestureHandlerRootView style={styles.container}>
       <View style={{ flex: 1, width: "100%", height: "100%" }}>
         {selectedImage ? (

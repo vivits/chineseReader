@@ -2,8 +2,7 @@
 # Chinese Reader
 
 This is a React Native project I built to enhance Chinese language learning through reading.
-I wanted to learn React Native and app development while also solving a real-world problem I
-experienced in my Chinese language learning journey. This app allows the user to take a photo
+I wanted to learn React Native and app development while also solving a real-world problem many Chinese language learners face. This app allows the user to take a photo
 of Chinese text and read unknown characters through pinyin and jyutping.
 
 ## Features
@@ -37,25 +36,22 @@ Note: Due to differences between the segmentation and dictionary tools, some wor
 
 ## Demo
 
-1. Open the app. On the first open, it needs to load the dictionary data into memory. This takes a few seconds.  
-   <img src="./demo/loadingscreen.gif" width="250">
-
-2. Select the photo, either by upload or camera.  
+1. Open the app and select the photo, either by upload or camera.  
    <img src="./demo/selectphoto.gif" width="250">
 
-3. Tap on a block of text to see the characters and their pinyin/jyutping.  
+2. Tap on a block of text to see the characters and their pinyin/jyutping.  
    <img src="./demo/blockselect.gif" width="250">
 
-4. Toggle between pinyin and jyutping.  
+3. Toggle between pinyin and jyutping.  
    <img src="./demo/toggle.gif" width="250">
 
-5. Tap on a word to see its English definition.  
+4. Tap on a word to see its English definition.  
    <img src="./demo/dictionary.gif" width="250">
 
-6. Tap on the right or left side of the BottomSheetScrollView to move up or down blocks.  
+5. Tap on the right or left side of the BottomSheetScrollView to move up or down blocks.  
    <img src="./demo/blockswitch.gif" width="250">
 
-7. Tap the back button to close the BottomSheetScrollView and select another image to read.  
+6. Tap the back button to close the BottomSheetScrollView and select another image to read.  
    <img src="./demo/exit.gif" width="250">
 
 ## Tech Stack
@@ -115,4 +111,4 @@ This app is not intended for children under 13, and we do not knowingly collect 
 
 ### 6. Contact Us
 
-If you have any questions or concerns about this policy, please contact us at: **vet927@gmail.com**
+If you have any questions or concerns about this policy, please contact us at: **maomoomau@gmail.com**
